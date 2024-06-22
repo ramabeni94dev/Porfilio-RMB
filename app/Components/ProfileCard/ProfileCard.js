@@ -1,5 +1,4 @@
 import { FaLinkedin, FaWhatsapp, FaGithub } from "react-icons/fa";
-import Image from "next/image";
 
 const ProfileCard = () => {
   return (
