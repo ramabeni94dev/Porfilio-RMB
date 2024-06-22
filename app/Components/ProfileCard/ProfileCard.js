@@ -4,7 +4,7 @@ const ProfileCard = () => {
   return (
     <div className="text-white w-full flex flex-row items-center justify-around p-4 mt-40 mb-40">
       <div className="flex flex-col  space-y-4 pr-10">
-        <h1 className="text-2xl font-bold">Hi, I'm Ramiro</h1>
+        <h1 className="text-2xl font-bold">Hi, I&rsquo;m Ramiro</h1>
         <p className="text-md">Web Developer</p>
         <button className="bg-transparent border border-white rounded-full px-8 py-2 text-sm hover:bg-white hover:text-black transition-colors duration-300">
           Contact
