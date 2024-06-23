@@ -34,17 +34,17 @@ const projects = [
     link: "https://example.com/project1",
   },
   {
-    title: "EMOTIONS-ANALYTICS APP",
+    title: "Customer Management Platform APP",
     image: "./gottertappremitos.png",
     link: "https://example.com/project1",
   },
   {
-    title: "EMOTIONS-ANALYTICS APP",
+    title: "miniscenics Landing Page",
     image: "./miniscenics.png",
     link: "https://example.com/project1",
   },
   {
-    title: "EMOTIONS-ANALYTICS APP",
+    title: "videogames Shop E-Commerce",
     image: "./tiendadejuegos.png",
     link: "https://example.com/project1",
   },
