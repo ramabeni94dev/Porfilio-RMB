@@ -5,47 +5,47 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "Gottert SA Landing Page",
-    image: "/WEBSITEGOTTERT.png",
+    image: "./WEBSITEGOTTERT.png",
     link: "https://example.com/project3",
   },
   {
     title: "Gottert SA Human Resources Portal",
-    image: "/PORTAL-RRHH.png",
+    image: "./PORTAL-RRHH.png",
     link: "https://example.com/project1",
   },
   {
     title: "Gottert SA After-Sales Quoter",
-    image: "/POSVENTA.png",
+    image: "./POSVENTA.png",
     link: "https://example.com/project1",
   },
   {
     title: "Personal Notice FORMS",
-    image: "/AVISO-PERSONAL.png",
+    image: "./AVISO-PERSONAL.png",
     link: "https://example.com/project1",
   },
   {
     title: "LARIBERA Fish Shop E-Commerce",
-    image: "/LARIBERA.png",
+    image: "./LARIBERA.png",
     link: "https://example.com/project1",
   },
   {
     title: "EMOTIONS-ANALYTICS APP",
-    image: "/EMOTIONANALITICS.png",
+    image: "./EMOTIONANALITICS.png",
     link: "https://example.com/project1",
   },
   {
     title: "EMOTIONS-ANALYTICS APP",
-    image: "/gottertappremitos.png",
+    image: "./gottertappremitos.png",
     link: "https://example.com/project1",
   },
   {
     title: "EMOTIONS-ANALYTICS APP",
-    image: "/miniscenics.png",
+    image: "./miniscenics.png",
     link: "https://example.com/project1",
   },
   {
     title: "EMOTIONS-ANALYTICS APP",
-    image: "/tiendadejuegos.png",
+    image: "./tiendadejuegos.png",
     link: "https://example.com/project1",
   },
 ];

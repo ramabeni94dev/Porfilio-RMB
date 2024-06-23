@@ -18,7 +18,7 @@ const SmokeEffect = () => {
     canvas.height = window.innerHeight + 100;
 
     const smokeImage = new Image();
-    smokeImage.src = "/smoke.webp"; // Asegúrate de que la ruta a la textura sea correcta
+    smokeImage.src = "./smoke.webp"; // Asegúrate de que la ruta a la textura sea correcta
 
     class Particle {
       constructor() {
