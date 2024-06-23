@@ -29,7 +29,7 @@ const ProfileCard = () => {
       </div>
       <div className="bg-white overflow-hidden rounded-full flex justify-center items-center mt-4 md:mt-0 w-48   h-48 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 ">
         <img
-          src="/ProfileCard.png"
+          src="./ProfileCard.png"
           alt="Ramiro Benitez"
           className="object-cover w-full h-full"
         />
