@@ -44,7 +44,7 @@ const projects = [
   {
     title: "New Company Website Revamp – www.gottert.com",
     link: "https://www.gottert.com", // URL del proyecto
-    image: "/gottertweb.gif", // Reemplaza con la ruta real de tu imagen
+    image: "/Porfilio-RMB/gottertweb.gif", // Reemplaza con la ruta real de tu imagen
     width: 640, // Ancho deseado para el gif
     height: 360, // Alto deseado para el gif
     description:
@@ -57,7 +57,7 @@ const projects = [
   },
   {
     title: "Shipping Notes & Client Management Platform",
-    image: "/remitos.png", // Reemplaza con la ruta real de tu imagen
+    image: "/Porfilio-RMB/remitos.png", // Reemplaza con la ruta real de tu imagen
     width: 640,
     height: 360,
     description:
@@ -70,7 +70,7 @@ const projects = [
   },
   {
     title: "Car Reservation & Fleet Management App",
-    image: "/flota.gif", // Reemplaza con la ruta real de tu imagen
+    image: "/Porfilio-RMB/flota.gif", // Reemplaza con la ruta real de tu imagen
     width: 640,
     height: 360,
     description:
