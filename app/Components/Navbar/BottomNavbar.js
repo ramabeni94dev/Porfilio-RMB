@@ -1,3 +1,4 @@
+// BottomNavbar.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
@@ -10,8 +11,8 @@ const BottomNavbar = () => {
 
   return (
     <motion.nav
-      className="fixed inset-x-0 bottom-0 bg-white text-black flex justify-center p-4 mx-auto w-full max-w-screen-sm mb-5 rounded-full shadow-2xl z-50"
-      style={{ boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.40)" }} // Sombra interna
+      className="fixed inset-x-0 bottom-0 bg-white text-black flex justify-center p-4 mx-auto w-full max-w-screen-sm mb-5 rounded-full shadow-5x1 z-50"
+      style={{ boxShadow: "inset 0 0 30px rgba(0, 0, 0, 0.40)" }} // Sombra interna
       initial="hidden"
       animate="visible"
       exit="hidden"

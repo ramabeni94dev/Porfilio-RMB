@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { AnimatePresence } from "framer-motion";
 import TopNavbar from "./Components/Navbar/TopNavbar";
 import BottomNavbar from "./Components/Navbar/BottomNavbar";
 import ProfileCard from "./Components/ProfileCard/ProfileCard";
@@ -11,24 +12,42 @@ import ConnectMe from "./Components/ConnectMe/ConnectMe";
 import Footer from "./Components/Footer/Footer";
 
 export default function Home() {
-  const [showBottomNav, setShowBottomNav] = useState(false);
+  // Estado para determinar si el TopNavbar es visible
+  const [topNavbarVisible, setTopNavbarVisible] = useState(true);
+  const topNavbarRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const show = window.pageYOffset > 100;
-      setShowBottomNav(show);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // entry.isIntersecting es true cuando el TopNavbar se ve en el viewport
+        setTopNavbarVisible(entry.isIntersecting);
+      },
+      { threshold: 0 } // Se dispara en cuanto el elemento entra o sale del viewport
+    );
 
-    window.addEventListener("scroll", handleScroll);
+    if (topNavbarRef.current) {
+      observer.observe(topNavbarRef.current);
+    }
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (topNavbarRef.current) {
+        observer.unobserve(topNavbarRef.current);
+      }
     };
   }, []);
 
   return (
     <main className="p-5">
-      <TopNavbar />
-      {showBottomNav && <BottomNavbar />}
+      {/* Envolvemos TopNavbar en un div con ref para detectar su visibilidad */}
+      <div ref={topNavbarRef}>
+        <TopNavbar />
+      </div>
+
+      {/* AnimatePresence para manejar la animación de entrada/salida del BottomNavbar */}
+      <AnimatePresence>
+        {!topNavbarVisible && <BottomNavbar key="bottom-navbar" />}
+      </AnimatePresence>
+
       <ProfileCard />
       <DateDisplay />
       <About />
