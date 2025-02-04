@@ -50,7 +50,7 @@ const ProfileCard = () => {
               className="home__blob-img"
               x="50"
               y="-1"
-              xlinkHref="./ProfileCard.png"
+              xlinkHref="./ProfileCard2.png"
               width="379"
               height="467"
               preserveAspectRatio="xMidYMid slice"
