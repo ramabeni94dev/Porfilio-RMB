@@ -1,6 +1,11 @@
 import { FaLinkedin, FaWhatsapp, FaGithub } from "react-icons/fa";
 
 const ProfileCard = () => {
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="w-full flex flex-col md:flex-row items-center justify-around p-4 mt-40 mb-40 text-white">
       {/* Columna Izquierda: Contenido textual */}
@@ -8,9 +13,15 @@ const ProfileCard = () => {
         <h1 className="text-5xl font-bold text-center md:text-left">
           Hi, I&rsquo;m Ramiro
         </h1>
-        <p className="text-3xl text-center md:text-left">Web Developer</p>
-        <button className="text-2xl bg-transparent border border-white rounded-full px-8 py-2  hover:bg-white hover:text-black transition-colors duration-300">
-          Contact
+        <p className="text-3xl text-center md:text-left">
+          Full Stack Developer
+        </p>
+        <button
+          type="button"
+          onClick={scrollToContact}
+          className="text-2xl bg-transparent border border-white rounded-full px-8 py-2  hover:bg-white hover:text-black transition-colors duration-300"
+        >
+          Let&rsquo;s talk
         </button>
         <div className="flex items-center space-x-4">
           <a

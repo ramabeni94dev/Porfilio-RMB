@@ -17,6 +17,9 @@ export default function Home() {
   const topNavbarRef = useRef(null);
 
   useEffect(() => {
+    const target = topNavbarRef.current;
+    if (!target) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         // entry.isIntersecting es true cuando el TopNavbar se ve en el viewport
@@ -25,14 +28,10 @@ export default function Home() {
       { threshold: 0 } // Se dispara en cuanto el elemento entra o sale del viewport
     );
 
-    if (topNavbarRef.current) {
-      observer.observe(topNavbarRef.current);
-    }
+    observer.observe(target);
 
     return () => {
-      if (topNavbarRef.current) {
-        observer.unobserve(topNavbarRef.current);
-      }
+      observer.unobserve(target);
     };
   }, []);
 

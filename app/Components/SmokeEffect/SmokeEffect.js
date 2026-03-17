@@ -3,15 +3,18 @@ import { useEffect, useRef } from "react";
 
 const SmokeEffect = () => {
   const canvasRef = useRef(null);
+  const rafRef = useRef(null);
+  const thenRef = useRef(Date.now());
+  const particlesRef = useRef([]);
+
   const NUM_PARTICLES = 50;
-  const particles = [];
-  const fps = 30;
-  const fpsInterval = 1000 / fps;
-  let then = Date.now();
-  let raf;
 
   useEffect(() => {
+    const fps = 30;
+    const fpsInterval = 1000 / fps;
+
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
 
     canvas.width = window.innerWidth;
@@ -52,12 +55,15 @@ const SmokeEffect = () => {
     }
 
     function init() {
+      const particles = particlesRef.current;
+      particles.length = 0;
       for (let i = 0; i < NUM_PARTICLES; i++) {
         particles.push(new Particle());
       }
     }
 
     function handleParticles() {
+      const particles = particlesRef.current;
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
@@ -71,13 +77,13 @@ const SmokeEffect = () => {
     }
 
     function animate() {
-      raf = requestAnimationFrame(animate);
+      rafRef.current = requestAnimationFrame(animate);
 
       const now = Date.now();
-      const elapsed = now - then;
+      const elapsed = now - thenRef.current;
 
       if (elapsed > fpsInterval) {
-        then = now - (elapsed % fpsInterval);
+        thenRef.current = now - (elapsed % fpsInterval);
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         handleParticles();
@@ -87,22 +93,29 @@ const SmokeEffect = () => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     if (!reducedMotion.matches) {
-      window.addEventListener("resize", () => {
+      const onResize = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight + 100;
-        cancelAnimationFrame(raf);
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
         handleParticles();
         animate();
-      });
+      };
+
+      window.addEventListener("resize", onResize);
 
       smokeImage.onload = () => {
         init();
         animate();
       };
+
+      return () => {
+        window.removeEventListener("resize", onResize);
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      };
     }
 
     return () => {
-      cancelAnimationFrame(raf);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 

@@ -9,7 +9,7 @@ const AchievementsList = ({ achievements }) => {
 
   return (
     <>
-      <h4 className="text-xl font-semibold mb-2">Achievements:</h4>
+      <h4 className="text-xl font-semibold mb-2">Highlights</h4>
       {/* En pantallas de notebook y superiores se muestran todos */}
       <ul className="hidden md:block list-disc list-inside mb-4 space-y-1">
         {achievements.map((achievement, i) => (
@@ -33,7 +33,7 @@ const AchievementsList = ({ achievements }) => {
           onClick={() => setExpanded((prev) => !prev)}
           className="text-blue-500 hover:underline"
         >
-          {expanded ? "Ver menos" : "Ver más"}
+          {expanded ? "Show less" : "Show more"}
         </button>
       </div>
     </>
@@ -42,45 +42,78 @@ const AchievementsList = ({ achievements }) => {
 
 const projects = [
   {
-    title: "New Company Website Revamp – www.gottert.com",
-    link: "https://www.gottert.com", // URL del proyecto
-    image: "/Porfilio-RMB/gottertweb.gif", // Reemplaza con la ruta real de tu imagen
-    width: 640, // Ancho deseado para el gif
-    height: 360, // Alto deseado para el gif
+    title: "Company Website Revamp — gottert.com",
+    link: "https://www.gottert.com",
+    image: "/Porfilio-RMB/gottertweb.gif",
+    width: 640,
+    height: 360,
     description:
-      "I spearheaded the complete redesign and development of the company's new website to modernize its corporate image and enhance online communication. Developed a responsive, user-friendly site that reinforced the company’s brand identity and provided a platform for showcasing products, services, and corporate values.",
+      "Led the redesign and development of the corporate website to modernize the brand presence and improve communication. Delivered a responsive, user-friendly experience focused on clarity, performance, and maintainability.",
     achievements: [
-      "Modernized the corporate image, refreshing the brand perception both internally and externally.",
-      "Improved user engagement by enhancing navigation, reducing bounce rates, and increasing average session duration.",
-      "Delivered a scalable, secure online platform supporting lead generation and improved customer communication.",
+      "Modernized the corporate image and improved content discoverability.",
+      "Improved UX through clearer navigation and responsive layouts.",
+      "Shipped a maintainable foundation ready for future iterations.",
     ],
+    techStack:
+      "Next.js, React, Tailwind CSS, responsive UI, performance-focused delivery",
   },
   {
     title: "Shipping Notes & Client Management Platform",
-    image: "/Porfilio-RMB/remitos.png", // Reemplaza con la ruta real de tu imagen
+    image: "/Porfilio-RMB/remitos.png",
     width: 640,
     height: 360,
     description:
-      "Designed to simplify and optimize the creation of shipping notes and the management of client data. Tech Stack: React.js (front-end), Node.js/Express (back-end), SQL/NoSQL databases.",
+      "Built a platform to streamline shipping note creation and client data management, reducing friction and error-prone manual steps while improving traceability.",
     achievements: [
-      "Reduced manual errors by 30%.",
-      "Improved data retrieval speeds by 40%.",
-      "Shortened processing times, resulting in a 20% reduction in operational costs and increased user satisfaction.",
+      "Reduced manual errors by standardizing data entry and validation.",
+      "Improved search and retrieval for client/shipping records.",
+      "Shortened turnaround time for day-to-day operations.",
     ],
+    techStack: "React, Node.js/Express, SQL/NoSQL, REST APIs",
   },
   {
-    title: "Car Reservation & Fleet Management App",
-    image: "/Porfilio-RMB/flota.gif", // Reemplaza con la ruta real de tu imagen
+    title: "Fleet Reservation & Management App",
+    image: "/Porfilio-RMB/flota.gif",
     width: 640,
     height: 360,
     description:
-      "Developed an application allowing employees to reserve company vehicles for both personal and work use. Administrators can assign vehicles, approve or reject requests, generate status updates, and maintain a comprehensive database for vehicle maintenance and reservations.",
+      "Developed an application for employees to reserve company vehicles, with admin workflows for approvals, assignments, and maintenance tracking to keep fleet usage organized and auditable.",
     achievements: [
-      "Increased fleet utilization by 35% through an optimized reservation process.",
-      "Improved efficiency in reservation management and vehicle assignment by 45%, reducing wait times and boosting productivity.",
-      "Reduced maintenance costs by 25% through proactive tracking and improved scheduling.",
-      "Contributed to increased operating revenue by optimizing fleet usage.",
+      "Centralized reservations, approvals, and usage history in one place.",
+      "Improved operational visibility with statuses and maintenance tracking.",
+      "Reduced time spent coordinating availability and assignments.",
     ],
+    techStack: "React, React Native, Node.js, SQL/NoSQL, REST APIs",
+  },
+  {
+    title: "AI Ticketing & Support Assistant",
+    link: "https://github.com/ramabeni94dev/Ticket-ia",
+    image: "/Porfilio-RMB/remitos.png",
+    width: 640,
+    height: 360,
+    description:
+      "Built an AI-assisted ticketing concept focused on faster triage, clearer problem statements, and more consistent support workflows.",
+    achievements: [
+      "Structured incoming requests to reduce back-and-forth.",
+      "Improved categorization and context gathering for support.",
+      "Designed for practical adoption in real teams.",
+    ],
+    techStack: "JavaScript/TypeScript, APIs, prompt-driven workflows",
+  },
+  {
+    title: "AI Chatbot Prototype",
+    link: "https://github.com/ramabeni94dev/Chatbot-ia",
+    image: "/Porfilio-RMB/gottertweb.gif",
+    width: 640,
+    height: 360,
+    description:
+      "Prototyped a chatbot experience to assist with common questions and internal knowledge access, focused on usability and fast iteration.",
+    achievements: [
+      "Designed a simple conversational UX to reduce friction.",
+      "Iterated quickly on flows and failure cases.",
+      "Built as a foundation for future productization.",
+    ],
+    techStack: "Next.js/React, API integrations, UX iteration",
   },
 ];
 
@@ -89,7 +122,7 @@ const Projects = () => {
     <div className="py-20 text-white">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
-          Projects & Responsibilities
+          Selected Projects
         </h2>
         <div className="grid gap-12">
           {projects.map((project, index) => (
@@ -132,9 +165,9 @@ const Projects = () => {
                 {/* Sección de logros con comportamiento responsivo */}
                 <AchievementsList achievements={project.achievements} />
                 <p className="mt-auto text-sm italic">
-                  <span className="font-semibold">Tech Stack:</span> React,
-                  Next.js, React Native, Node.js, SQL/NoSQL, REST APIs, Azure,
-                  Azure Graph Explorer API, Agile Methodologies
+                  <span className="font-semibold">Tech stack:</span>{" "}
+                  {project.techStack ??
+                    "Next.js, React, Node.js, REST APIs, Tailwind CSS"}
                 </p>
               </div>
             </motion.div>

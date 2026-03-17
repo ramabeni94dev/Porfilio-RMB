@@ -6,7 +6,7 @@ const TopNavbar = () => {
     <nav className=" text-white w-full p-4 flex flex-wrap justify-between items-center">
       <div className="flex flex-col md:flex-row md:items-center">
         <h1 className="text-lg font-bold">Ramiro Benitez</h1>
-        <p className="md:ml-4">Web Developer</p>
+        <p className="md:ml-4">Full Stack Developer</p>
       </div>
       <div className="flex gap-2 md:gap-4">
         <a
