@@ -1,5 +1,7 @@
 "use client";
+
 import { useEffect, useRef } from "react";
+import smokeTexture from "../../../public/smoke.webp";
 
 const SmokeEffect = () => {
   const canvasRef = useRef(null);
@@ -15,13 +17,13 @@ const SmokeEffect = () => {
 
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
 
+    const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight + 100;
 
     const smokeImage = new Image();
-    smokeImage.src = "./smoke.webp"; // Asegúrate de que la ruta a la textura sea correcta
+    smokeImage.src = smokeTexture.src;
 
     class Particle {
       constructor() {
@@ -49,7 +51,7 @@ const SmokeEffect = () => {
           this.size,
           this.size
         );
-        ctx.globalAlpha = 1.0;
+        ctx.globalAlpha = 1;
         ctx.restore();
       }
     }
@@ -57,20 +59,20 @@ const SmokeEffect = () => {
     function init() {
       const particles = particlesRef.current;
       particles.length = 0;
-      for (let i = 0; i < NUM_PARTICLES; i++) {
+      for (let i = 0; i < NUM_PARTICLES; i += 1) {
         particles.push(new Particle());
       }
     }
 
     function handleParticles() {
       const particles = particlesRef.current;
-      for (let i = 0; i < particles.length; i++) {
+      for (let i = 0; i < particles.length; i += 1) {
         particles[i].update();
         particles[i].draw();
 
         if (particles[i].size <= 1) {
           particles.splice(i, 1);
-          i--;
+          i -= 1;
           particles.push(new Particle());
         }
       }
@@ -84,7 +86,6 @@ const SmokeEffect = () => {
 
       if (elapsed > fpsInterval) {
         thenRef.current = now - (elapsed % fpsInterval);
-
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         handleParticles();
       }
@@ -120,13 +121,13 @@ const SmokeEffect = () => {
   }, []);
 
   return (
-    <div id="smoke-bkg" className="fixed top-0 -z-10 h-full w-full">
+    <div id="smoke-bkg" className="pointer-events-none fixed inset-0 -z-10">
       <canvas
         id="smoke-canvas"
         ref={canvasRef}
-        aria-label="Efecto de fondo de humo"
-        className="opacity-70"
-      ></canvas>
+        aria-label="Smoke background effect"
+        className="h-full w-full opacity-60"
+      />
     </div>
   );
 };

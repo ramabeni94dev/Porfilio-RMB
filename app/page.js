@@ -372,8 +372,8 @@ export default function Home() {
           </div>
         </motion.header>
 
-        <section className="section-shell">
-          <div className="grid gap-10 lg:grid-cols-[1.45fr_0.9fr] lg:items-end">
+        <section className="hero-stage">
+          <div className="grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <motion.div
               custom={0}
               initial="hidden"
@@ -381,23 +381,29 @@ export default function Home() {
               variants={fadeUp}
             >
               <span className="eyebrow">Full stack product engineering</span>
-              <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
+              <p className="mt-10 text-lg font-medium text-white/80">
+                Hi, I&apos;m Ramiro.
+              </p>
+              <h1 className="mt-4 max-w-5xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
                 I build business software, AI workflows and internal platforms
-                that teams actually use.
+                with a product mindset.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)] md:text-xl">
-                My work sits where product thinking meets delivery discipline:
-                React and Next.js on the frontend, Node.js and Python behind the
-                scenes, Azure in the middle, and a strong bias toward systems
-                that simplify real operations.
+                Full Stack Developer based in Buenos Aires, working across
+                React, Next.js, Node.js, Azure, PostgreSQL and automation for
+                systems that real teams depend on every day.
               </p>
+              <div className="mt-8 flex items-center gap-2 text-sm text-[color:var(--muted)]">
+                <FiMapPin />
+                <span>Buenos Aires, Argentina</span>
+              </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="mailto:ramabeni94.dev@gmail.com"
                   className="inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#0d1110] transition hover:translate-y-[-1px]"
                 >
                   <FiMail className="text-base" />
-                  Start a conversation
+                  Let&apos;s talk
                 </a>
                 <a
                   href="https://github.com/ramabeni94dev"
@@ -418,58 +424,73 @@ export default function Home() {
                   LinkedIn
                 </a>
               </div>
+              <div className="mt-6 flex flex-wrap gap-4 text-white/70">
+                <a
+                  href="https://www.linkedin.com/in/ramabeni94/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-icon-link"
+                  aria-label="LinkedIn"
+                >
+                  <FiLinkedin />
+                </a>
+                <a
+                  href="mailto:ramabeni94.dev@gmail.com"
+                  className="hero-icon-link"
+                  aria-label="Email"
+                >
+                  <FiMail />
+                </a>
+                <a
+                  href="https://github.com/ramabeni94dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-icon-link"
+                  aria-label="GitHub"
+                >
+                  <FiGithub />
+                </a>
+              </div>
+
+              <div className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                {metrics.map((metric) => (
+                  <div key={metric.label} className="metric-card">
+                    <p className="metric-value">{metric.value}</p>
+                    <p className="metric-label">{metric.label}</p>
+                    <p className="metric-detail">{metric.detail}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             <motion.div
-              className="relative"
+              className="relative flex justify-center lg:justify-end"
               custom={1}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
             >
-              <div className="hero-card">
-                <div className="hero-glow hero-glow-lime" />
-                <div className="hero-glow hero-glow-cyan" />
-                <div className="relative z-10">
-                  <div className="mb-8 grid gap-5 border-b border-white/10 pb-8 md:grid-cols-[220px_1fr] md:items-end">
-                    <div className="portrait-frame">
-                      <Image
-                        src={profileCardImage}
-                        alt="Portrait of Ramiro Benitez"
-                        width={520}
-                        height={640}
-                        priority
-                        className="portrait-image"
-                      />
-                    </div>
-                    <div>
-                      <span className="eyebrow">Profile</span>
-                      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
-                        Ramiro Benitez
-                      </h2>
-                      <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
-                        Full Stack Developer focused on product delivery,
-                        internal systems, business software and AI-assisted
-                        workflows.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-[color:var(--muted)]">
-                    <FiMapPin />
-                    <span>Buenos Aires, Argentina</span>
-                  </div>
-                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                    {metrics.map((metric) => (
-                      <div key={metric.label} className="metric-card">
-                        <p className="metric-value">{metric.value}</p>
-                        <p className="metric-label">{metric.label}</p>
-                        <p className="metric-detail">{metric.detail}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="mt-8 max-w-md text-sm leading-6 text-[color:var(--muted)]">
-                    This portfolio reflects real delivery patterns extracted from
-                    current repositories, not a generic stack wishlist.
+              <div className="portrait-stage">
+                <div className="portrait-halo" />
+                <div className="portrait-orb">
+                  <Image
+                    src={profileCardImage}
+                    alt="Portrait of Ramiro Benitez"
+                    width={760}
+                    height={760}
+                    priority
+                    className="portrait-orb-image"
+                  />
+                </div>
+                <div className="portrait-note">
+                  <span className="eyebrow">Profile</span>
+                  <p className="mt-4 text-xl font-semibold text-white">
+                    Full Stack Developer
+                  </p>
+                  <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
+                    Shipping internal systems, business software and
+                    AI-assisted workflows without losing the human side of the
+                    product.
                   </p>
                 </div>
               </div>
