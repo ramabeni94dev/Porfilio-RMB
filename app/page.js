@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import profileCardImage from "../public/ProfileCard2.png";
 import {
   FiArrowRight,
   FiBriefcase,
@@ -433,7 +434,7 @@ export default function Home() {
                   <div className="mb-8 grid gap-5 border-b border-white/10 pb-8 md:grid-cols-[220px_1fr] md:items-end">
                     <div className="portrait-frame">
                       <Image
-                        src="/ProfileCard2.png"
+                        src={profileCardImage}
                         alt="Portrait of Ramiro Benitez"
                         width={520}
                         height={640}
