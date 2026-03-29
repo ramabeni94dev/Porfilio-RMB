@@ -2,24 +2,256 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  color: 26, 25, 23;
-  background: #1a1917;
+:root {
+  --bg: #07110f;
+  --bg-soft: #0d1815;
+  --panel: rgba(15, 24, 21, 0.72);
+  --panel-strong: rgba(10, 16, 14, 0.88);
+  --line: rgba(228, 238, 233, 0.11);
+  --text: #edf5ef;
+  --muted: #9cb0a7;
+  --accent: #d0ff62;
+  --accent-2: #7de3d4;
+  --accent-3: #ffbf69;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(125, 227, 212, 0.15), transparent 28%),
+    radial-gradient(circle at 85% 12%, rgba(208, 255, 98, 0.16), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(255, 191, 105, 0.14), transparent 24%),
+    linear-gradient(180deg, #081210 0%, #07110f 46%, #050908 100%);
+  color: var(--text);
+  font-family: var(--font-display), sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 90%);
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.02), transparent 44%),
+    linear-gradient(220deg, rgba(125, 227, 212, 0.03), transparent 38%);
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(208, 255, 98, 0.32);
+  color: #081210;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 2.25rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(208, 255, 98, 0), rgba(208, 255, 98, 0.9));
+}
+
+.section-shell,
+.panel-card,
+.hero-card,
+.contact-shell,
+.contact-card,
+.metric-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+  backdrop-filter: blur(20px);
+}
+
+.section-shell,
+.contact-shell {
+  border-radius: 2rem;
+  padding: 1.5rem;
+}
+
+.panel-card,
+.hero-card,
+.contact-card,
+.metric-card {
+  border-radius: 1.7rem;
+}
+
+.panel-card,
+.contact-card {
+  padding: 1.5rem;
+}
+
+.hero-card {
+  min-height: 100%;
+  padding: 1.5rem;
+}
+
+.hero-card::after,
+.panel-card::after,
+.contact-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 999px;
+  filter: blur(70px);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.hero-glow-lime {
+  top: -4rem;
+  right: -2rem;
+  background: var(--accent);
+}
+
+.hero-glow-cyan {
+  bottom: -5rem;
+  left: -4rem;
+  background: var(--accent-2);
+}
+
+.metric-card {
+  min-height: 12rem;
+  padding: 1.2rem;
+}
+
+.metric-value {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: white;
+}
+
+.metric-label {
+  margin-top: 0.85rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.metric-detail {
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(237, 245, 239, 0.92);
+}
+
+.contact-shell {
+  padding: 1.8rem;
+}
+
+.contact-card {
+  display: block;
+  min-height: 100%;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.17);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+@media (min-width: 768px) {
+  .section-shell,
+  .contact-shell,
+  .panel-card,
+  .hero-card,
+  .contact-card {
+    padding: 2rem;
+  }
+
+  .section-shell {
+    padding: 2rem;
   }
 }
 
-.circle {
-  width: 30px;
-  height: 30px;
-  border: 2px solid white;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none; /* Esto hace que el círculo no interfiera con otros eventos del ratón */
-  transform: translate(-50%, -50%); /* Centra el círculo en el puntero */
-  z-index: 1000; /* Asegura que el círculo esté encima de otros elementos */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

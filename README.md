@@ -1,20 +1,28 @@
-## Ramiro Benitez — Portfolio
+## Ramiro Benitez - Portfolio
 
-Personal portfolio built with **Next.js** and **Tailwind CSS**, showcasing selected projects and responsibilities across web and internal business applications.
+Professional portfolio built with **Next.js 14**, **Tailwind CSS** and **Framer Motion**.
 
-- **Live**: `https://porfilio-rmb.vercel.app`
-- **LinkedIn**: `https://www.linkedin.com/in/ramabeni94/`
-- **GitHub**: `https://github.com/ramabeni94dev`
+Live site: `https://porfilio-rmb.vercel.app`
 
-## About
+## Focus
 
-I’m a Full Stack Developer based in Argentina, building modern web applications end-to-end: UI, APIs, integrations, and automation. I focus on maintainable code, pragmatic UX, and measurable impact on real workflows.
+This version of the portfolio is centered on real delivery patterns extracted from active repositories across personal and organization work. It highlights:
 
-## Tech Stack
+- Full stack product engineering
+- Internal business software
+- AI-assisted workflows
+- HR portals and operational systems
+- Cloud-connected applications with Azure
+- Backend and automation work with Node.js and Python
 
-- **Frontend**: Next.js, React, Tailwind CSS, Framer Motion
-- **Backend**: Node.js (REST APIs)
-- **Other**: Three.js, CI/CD, cloud & automation workflows
+## Core stack
+
+- **Frontend**: React, Next.js, JavaScript, TypeScript, Tailwind CSS, Material UI, Framer Motion
+- **Backend**: Node.js, NestJS, Express.js, Azure Functions, FastAPI
+- **Data**: PostgreSQL, Sequelize, PL/pgSQL, SQL Server
+- **Integrations**: OpenAI API, Odoo XML-RPC, MQTT, Selenium
+- **Delivery**: Azure, GitHub Actions, Docker
+- **Mobile**: React Native, Expo
 
 ## Run locally
 
@@ -31,3 +39,9 @@ Open `http://localhost:3000`.
 npm run build
 npm run start
 ```
+
+## Links
+
+- GitHub: `https://github.com/ramabeni94dev`
+- LinkedIn: `https://www.linkedin.com/in/ramabeni94/`
+- Email: `ramabeni94.dev@gmail.com`
