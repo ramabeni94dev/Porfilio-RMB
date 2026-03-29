@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   FiArrowRight,
   FiBriefcase,
@@ -429,6 +430,29 @@ export default function Home() {
                 <div className="hero-glow hero-glow-lime" />
                 <div className="hero-glow hero-glow-cyan" />
                 <div className="relative z-10">
+                  <div className="mb-8 grid gap-5 border-b border-white/10 pb-8 md:grid-cols-[220px_1fr] md:items-end">
+                    <div className="portrait-frame">
+                      <Image
+                        src="/ProfileCard2.png"
+                        alt="Portrait of Ramiro Benitez"
+                        width={520}
+                        height={640}
+                        priority
+                        className="portrait-image"
+                      />
+                    </div>
+                    <div>
+                      <span className="eyebrow">Profile</span>
+                      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
+                        Ramiro Benitez
+                      </h2>
+                      <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
+                        Full Stack Developer focused on product delivery,
+                        internal systems, business software and AI-assisted
+                        workflows.
+                      </p>
+                    </div>
+                  </div>
                   <div className="flex items-center gap-2 text-sm text-[color:var(--muted)]">
                     <FiMapPin />
                     <span>Buenos Aires, Argentina</span>
