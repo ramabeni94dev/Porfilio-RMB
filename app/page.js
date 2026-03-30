@@ -773,7 +773,6 @@ export default function Home() {
         <footer className="pb-6 pt-16 text-sm text-[color:var(--muted)]">
           <div className="flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
             <p>Ramiro Benitez · Full Stack Developer</p>
-            <p>Built with Next.js, Tailwind CSS and Framer Motion.</p>
           </div>
         </footer>
       </div>
