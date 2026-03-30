@@ -14,7 +14,7 @@ export const siteCopy = {
     hero: {
       eyebrow: "Full Stack Developer",
       greeting: "Hi, I'm Ramiro.",
-      title: "I build internal tools, business apps and a few AI-powered products.",
+      title: "I build internal tools, business apps and AI-powered solutions.",
       description:
         "Most of my work is full stack. I build interfaces, connect APIs, work with databases and try to make the final product feel clear and useful for the people who use it every day.",
       location: "Buenos Aires, Argentina",
@@ -364,7 +364,7 @@ export const siteCopy = {
     hero: {
       eyebrow: "Desarrollador Full Stack",
       greeting: "Hola, soy Ramiro.",
-      title: "Construyo herramientas internas, apps de negocio y algunos productos con IA.",
+      title: "Construyo herramientas internas, apps de negocio y soluciones con IA.",
       description:
         "La mayor parte de mi trabajo es full stack. Desarrollo interfaces, conecto APIs, trabajo con bases de datos e intento que el producto final se sienta claro y util para la gente que lo usa todos los dias.",
       location: "Buenos Aires, Argentina",
