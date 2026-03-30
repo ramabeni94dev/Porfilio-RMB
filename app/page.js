@@ -29,79 +29,79 @@ const navigation = [
 const metrics = [
   {
     value: "60",
-    label: "repositories mapped",
-    detail: "Evidence gathered from personal and organization codebases.",
+    label: "repos I've worked on",
+    detail: "Between personal projects and the products I build at work.",
   },
   {
     value: "35",
-    label: "Next.js projects",
-    detail: "Internal products, portals, dashboards and business workflows.",
+    label: "Next.js apps",
+    detail: "Mostly internal tools, portals and business-facing products.",
   },
   {
     value: "34",
-    label: "Azure-connected apps",
-    detail: "Cloud integrations, internal tooling and serverless systems.",
+    label: "Azure-based projects",
+    detail: "Apps connected to cloud services, automations and deployments.",
   },
   {
     value: "10",
-    label: "AI-enabled solutions",
-    detail: "OpenAI-assisted apps for support, communication and operations.",
+    label: "AI-related projects",
+    detail: "Support tools, internal workflows and a few practical experiments.",
   },
 ];
 
 const focusAreas = [
   {
-    title: "Business platforms",
+    title: "Internal tools and business apps",
     icon: FiLayers,
     description:
-      "Commercial, CRM, ecommerce, production, supplies and shipping-note flows translated into usable products.",
+      "A big part of my work is building tools for commercial, CRM, production, supplies and admin teams.",
     items: [
-      "Operational dashboards and internal admin tooling",
-      "High-volume forms, traceability and searchable records",
-      "Interfaces designed for real teams, not demo cases",
+      "Dashboards and day-to-day internal tooling",
+      "Forms, traceability and searchable records",
+      "Interfaces made for real use, not just for show",
     ],
   },
   {
     title: "HR and internal portals",
     icon: FiBriefcase,
     description:
-      "Portal ecosystems for HR, attendance, forms, approvals and employee-facing workflows.",
+      "I've also worked on HR portals, attendance flows, forms and approval processes.",
     items: [
-      "Next.js frontends connected to service backends",
-      "Serverless processes for attendance and automation",
-      "Backend support with PostgreSQL, Sequelize and Python services",
+      "Frontend work with Next.js connected to backend services",
+      "Serverless flows for attendance and internal automation",
+      "Backend support with PostgreSQL, Sequelize and Python",
     ],
   },
   {
     title: "AI and automation",
     icon: FiMessageSquare,
     description:
-      "Practical AI integrations focused on support, mail workflows, ticketing and operational acceleration.",
+      "I've been adding AI where it actually helps: support flows, email handling and internal tools.",
     items: [
-      "OpenAI API integrations inside production-oriented apps",
-      "Fast iteration on internal copilots and chat workflows",
-      "Automation layers built with Node.js and Python",
+      "OpenAI integrations inside working products",
+      "Internal copilots, chat flows and support helpers",
+      "Automation built with Node.js and Python",
     ],
   },
   {
-    title: "Industrial and field systems",
+    title: "Operations and field work",
     icon: FiSettings,
     description:
-      "Solutions spanning datalogging, MQTT pipelines, technician support and mobile-oriented operational tools.",
+      "Some projects are closer to operations: datalogging, MQTT, technician support and mobile workflows.",
     items: [
-      "IoT and telemetry data collection flows",
+      "IoT and telemetry flows",
       "Interfaces for plant, field and technical teams",
-      "Mobile and web experiences built around operational reliability",
+      "Web and mobile experiences built around reliability",
     ],
   },
 ];
 
 const workStreams = [
   {
-    title: "Commercial and CRM suite",
-    eyebrow: "Private production work",
+    title: "Commercial and CRM work",
+    eyebrow: "Private work",
     summary:
-      "Multi-product delivery across commercial workflows, CRM, ecommerce and support operations. Focused on clarity, speed and adoption by internal teams.",
+      "I've worked on several products tied to commercial processes, CRM, ecommerce and support operations. Most of that work has been about making things clearer, faster and easier to use for the people inside the company.",
     stack: [
       "Next.js",
       "React",
@@ -113,16 +113,16 @@ const workStreams = [
       "OpenAI API",
     ],
     highlights: [
-      "Built dashboard-heavy UI patterns for real operating teams",
-      "Handled forms, search flows and process visibility across departments",
-      "Delivered maintainable interfaces with room for fast iteration",
+      "Built dashboards and internal UI for teams that use them every day",
+      "Worked on forms, search flows and process visibility across departments",
+      "Kept the codebase easy to move forward as requirements changed",
     ],
   },
   {
     title: "HR portal ecosystem",
-    eyebrow: "Private production work",
+    eyebrow: "Private work",
     summary:
-      "A coordinated set of apps and APIs covering HR portals, forms, attendance workflows and supporting automation services.",
+      "I've been involved in a set of apps and APIs for HR portals, forms, attendance and related automation.",
     stack: [
       "Next.js",
       "NestJS",
@@ -134,16 +134,16 @@ const workStreams = [
       "Azure Functions",
     ],
     highlights: [
-      "Connected frontend portals with backend and serverless processing",
-      "Supported attendance and internal workflow automation",
-      "Worked across UI, APIs, database logic and process orchestration",
+      "Connected frontend portals with backend services and serverless processing",
+      "Worked on attendance flows and internal automation",
+      "Moved between UI, APIs and database logic depending on what the product needed",
     ],
   },
   {
     title: "Production and operations systems",
-    eyebrow: "Private production work",
+    eyebrow: "Private work",
     summary:
-      "Applications for production management, supplies and internal execution tracking, built around operational continuity and low-friction workflows.",
+      "I've also worked on apps for production, supplies and internal execution tracking, where the main goal was to make daily work simpler and more reliable.",
     stack: [
       "Next.js",
       "React",
@@ -155,16 +155,16 @@ const workStreams = [
       "Azure",
     ],
     highlights: [
-      "Shipped interfaces tuned for day-to-day execution speed",
-      "Supported process digitization and migration away from manual steps",
-      "Kept codebases maintainable while products evolved in parallel",
+      "Built interfaces that helped teams move faster day to day",
+      "Helped replace manual steps with clearer digital flows",
+      "Maintained several products at the same time without turning them into a mess",
     ],
   },
   {
     title: "AI assistants and support tools",
-    eyebrow: "Private production work",
+    eyebrow: "Private work",
     summary:
-      "Support-oriented and communication-focused products enhanced with AI to structure requests, improve context and accelerate response workflows.",
+      "Some of my recent work has been around AI features for support and communication, always with a practical use case behind it.",
     stack: [
       "OpenAI API",
       "Next.js",
@@ -175,16 +175,16 @@ const workStreams = [
       "Azure",
     ],
     highlights: [
-      "Integrated AI in practical product flows instead of isolated demos",
-      "Used internal tooling patterns to improve productivity",
-      "Combined UX, prompt-driven features and operational requirements",
+      "Added AI into products people were already using",
+      "Used internal tools to make support and communication work smoother",
+      "Balanced UX, prompts and business constraints in the same flow",
     ],
   },
   {
     title: "IoT, datalogging and automation",
-    eyebrow: "Private production work",
+    eyebrow: "Private work",
     summary:
-      "Work spanning telemetry collection, API services and industrial-facing applications where reliable data movement matters more than flashy UI.",
+      "I've touched work around telemetry, APIs and industrial-facing apps where reliability matters more than presentation.",
     stack: [
       "Node.js",
       "Express.js",
@@ -196,16 +196,16 @@ const workStreams = [
       "Docker",
     ],
     highlights: [
-      "Connected industrial data flows into usable software layers",
-      "Built automation and integration services around operational needs",
-      "Worked with both backend reliability and frontend visibility",
+      "Connected data coming from devices into software people could actually use",
+      "Built integration and automation services around operational needs",
+      "Worked on both the backend side and the UI side when needed",
     ],
   },
   {
-    title: "Mobile and field-facing experiences",
-    eyebrow: "Product exploration and delivery",
+    title: "Mobile work",
+    eyebrow: "Personal and product work",
     summary:
-      "Mobile work with React Native and Expo for apps that need to travel with operations, technicians or on-the-go users.",
+      "I've also spent time building with React Native and Expo for apps that need to work well outside the desktop.",
     stack: [
       "React Native",
       "Expo",
@@ -214,9 +214,9 @@ const workStreams = [
       "Node.js",
     ],
     highlights: [
-      "Built mobile flows around practical use cases, not generic templates",
-      "Extended product thinking from web interfaces into mobile",
-      "Kept the same business-software mindset across devices",
+      "Built mobile flows around real use cases",
+      "Took the same product thinking from web into mobile",
+      "Kept things simple and usable across devices",
     ],
   },
 ];
@@ -288,24 +288,22 @@ const experience = [
     company: "Gottert",
     period: "Aug 2023 - Present",
     summary:
-      "Building internal business software across commercial, CRM, HR, production, support and operations. Owning frontend delivery, backend support, integrations and iterative product evolution.",
+      "At Gottert I've been building internal tools for commercial, CRM, HR, production and support teams. Most of the time I'm moving between frontend work, backend integrations and product improvements.",
   },
   {
     role: "Independent product and freelance work",
     company: "Personal and client projects",
     period: "2023 - Present",
     summary:
-      "Shipping portfolio work, prototypes, React Native experiments and web products while expanding into AI-assisted workflows, automation and multi-stack implementation.",
+      "Outside of that, I keep working on personal projects, prototypes and freelance work. That's where I usually try new ideas, explore mobile and AI, and keep expanding my stack.",
   },
 ];
 
 const evidence = [
-  "52 repositories with JavaScript and Node.js usage",
-  "41 repositories with React in active delivery",
-  "23 repositories with TypeScript adoption",
-  "11 repositories connected to PostgreSQL",
-  "4 repositories using NestJS",
-  "4 repositories using Azure Functions",
+  "React and Next.js are the tools I've used the most in recent projects",
+  "A lot of the backend work has been with Node.js, NestJS and Express",
+  "Azure, PostgreSQL and Sequelize show up in a big part of my day-to-day work",
+  "I've also been building things with OpenAI, Python, FastAPI and Expo",
 ];
 
 const fadeUp = {
@@ -355,7 +353,7 @@ export default function Home() {
                 Ramiro Benitez
               </p>
               <p className="mt-1 text-sm text-[color:var(--muted)]">
-                Full Stack Developer · Buenos Aires, Argentina
+                Full Stack Developer - Buenos Aires, Argentina
               </p>
             </div>
             <nav className="flex flex-wrap items-center gap-3 text-sm text-[color:var(--muted)]">
@@ -380,18 +378,18 @@ export default function Home() {
               animate="visible"
               variants={fadeUp}
             >
-              <span className="eyebrow">Full stack product engineering</span>
+              <span className="eyebrow">Full Stack Developer</span>
               <p className="mt-10 text-lg font-medium text-white/80">
                 Hi, I&apos;m Ramiro.
               </p>
               <h1 className="mt-4 max-w-5xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-                I build business software, AI workflows and internal platforms
-                with a product mindset.
+                I build internal tools, business apps and a few AI-powered
+                products.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)] md:text-xl">
-                Full Stack Developer based in Buenos Aires, working across
-                React, Next.js, Node.js, Azure, PostgreSQL and automation for
-                systems that real teams depend on every day.
+                Most of my work is full stack. I build interfaces, connect
+                APIs, work with databases and try to make the final product feel
+                clear and useful for the people who use it every day.
               </p>
               <div className="mt-8 flex items-center gap-2 text-sm text-[color:var(--muted)]">
                 <FiMapPin />
@@ -488,9 +486,8 @@ export default function Home() {
                     Full Stack Developer
                   </p>
                   <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
-                    Shipping internal systems, business software and
-                    AI-assisted workflows without losing the human side of the
-                    product.
+                    I like working on products that need to be useful first:
+                    clear UI, solid logic and tools people can actually rely on.
                   </p>
                 </div>
               </div>
@@ -501,8 +498,8 @@ export default function Home() {
         <section id="work" className="mt-8">
           <SectionHeading
             eyebrow="What I build"
-            title="From internal tools to AI-assisted workflows"
-            description="Most of my work lives inside business-critical products: commercial operations, CRM, HR portals, production systems, automation services and AI-enabled support layers."
+            title="The kind of work I usually do"
+            description="Most of my time goes into internal tools, business apps and systems people use every day inside a company."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -520,7 +517,7 @@ export default function Home() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <span className="eyebrow">Focus area</span>
+                      <span className="eyebrow">What I work on</span>
                       <h3 className="mt-3 text-2xl font-semibold text-white">
                         {area.title}
                       </h3>
@@ -548,9 +545,9 @@ export default function Home() {
 
         <section className="mt-24">
           <SectionHeading
-            eyebrow="Selected delivery streams"
-            title="Representative work, grouped by product domain"
-            description="A portfolio built mostly from private production software means the best signal is the pattern: recurring systems, recurring stacks and recurring business problems solved across multiple codebases."
+            eyebrow="Projects and product areas"
+            title="A few areas I've been working on"
+            description="A lot of my recent work is private, so instead of showing every screen, I prefer to explain the kinds of products I've been building and the stack behind them."
           />
 
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
@@ -567,7 +564,7 @@ export default function Home() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span className="eyebrow">{stream.eyebrow}</span>
                   <span className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                    confidential stack snapshot
+                    private project
                   </span>
                 </div>
                 <h3 className="mt-4 text-2xl font-semibold text-white">
@@ -597,8 +594,8 @@ export default function Home() {
         <section id="stack" className="mt-24">
           <SectionHeading
             eyebrow="Stack"
-            title="The technologies showing up repeatedly in shipped work"
-            description="These are not aspirational keywords. They come from the codebases currently under my GitHub accounts and organization access."
+            title="Tech I use the most"
+            description="This is the stack that keeps showing up in the projects I've been working on lately."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -636,9 +633,9 @@ export default function Home() {
         <section id="experience" className="mt-24 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="panel-card">
             <SectionHeading
-              eyebrow="Experience snapshot"
-              title="Current professional arc"
-              description="A mix of ongoing internal product work and independent project delivery, with most depth concentrated in multi-repo business applications."
+              eyebrow="Experience"
+              title="What I've been doing"
+              description="I've been focused mainly on internal business software, plus personal and freelance work on the side."
             />
             <div className="mt-8 space-y-8">
               {experience.map((item) => (
@@ -674,14 +671,14 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <span className="eyebrow">Repository evidence</span>
+            <span className="eyebrow">What I use the most</span>
             <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
-              What the repo map says
+              The stack I keep coming back to
             </h3>
             <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
-              The strongest signal is consistency: the same families of
-              technologies show up across multiple products, not just one-off
-              experiments.
+              If I look at the last few years of work, the same core tools keep
+              showing up: React and Next.js on the frontend, Node.js on the
+              backend, Azure around it and PostgreSQL in a lot of the products.
             </p>
             <ul className="mt-8 space-y-3 text-sm text-white/85">
               {evidence.map((item) => (
@@ -697,7 +694,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-[color:var(--accent)]"
             >
-              Explore public GitHub
+              See my GitHub
               <FiArrowRight />
             </a>
           </motion.aside>
@@ -715,13 +712,11 @@ export default function Home() {
             <div className="max-w-3xl">
               <span className="eyebrow">Contact</span>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
-                If you need someone who can own the UI, API and delivery path,
-                let&apos;s talk.
+                If you want to build something together, feel free to reach out.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
-                I am most useful in environments where product needs change
-                fast, workflows are messy and the software still has to ship
-                cleanly.
+                I&apos;m always open to a good project, freelance work or just
+                talking shop with other developers.
               </p>
             </div>
 
@@ -772,7 +767,7 @@ export default function Home() {
 
         <footer className="pb-6 pt-16 text-sm text-[color:var(--muted)]">
           <div className="flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-            <p>Ramiro Benitez · Full Stack Developer</p>
+            <p>Ramiro Benitez - Full Stack Developer</p>
           </div>
         </footer>
       </div>
