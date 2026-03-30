@@ -111,35 +111,28 @@ export default function Home() {
     <main className="relative overflow-hidden px-4 pb-16 pt-5 md:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.header
-          className="sticky top-4 z-40 mb-8 rounded-[2rem] border border-white/10 bg-[color:var(--panel-strong)] px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur md:rounded-full"
+          className="portfolio-header sticky top-4 z-40 mb-8 rounded-[2rem] border border-white/10 bg-[color:var(--panel-strong)] px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur md:rounded-full"
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-[color:var(--accent)]">
-                {header.name}
-              </p>
-              <p className="mt-1 text-sm text-[color:var(--muted)]">
-                {header.subtitle}
-              </p>
-            </div>
+          <div className="portfolio-header__inner">
+            <div className="portfolio-header__top">
+              <div className="portfolio-header__brand">
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-[color:var(--accent)]">
+                  {header.name}
+                </p>
+                <p className="portfolio-header__role">{header.role}</p>
+                <div className="portfolio-header__location">
+                  <FiMapPin className="text-[0.92rem]" />
+                  <span>{header.location}</span>
+                </div>
+              </div>
 
-            <div className="flex flex-col gap-3 md:items-end">
-              <nav className="grid w-full grid-cols-2 gap-2 text-sm text-[color:var(--muted)] sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-3">
-                {navigation.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-full px-3 py-2 text-center transition hover:bg-white/5 hover:text-white"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-
-              <div className="inline-flex self-start rounded-full border border-white/10 bg-white/5 p-1 md:self-end">
+              <div
+                className="portfolio-locale-switch inline-flex rounded-full border border-white/10 bg-white/5 p-1"
+                aria-label="Language switch"
+              >
                 {languageOptions.map((option) => {
                   const isActive = option.code === locale;
 
@@ -161,6 +154,18 @@ export default function Home() {
                 })}
               </div>
             </div>
+
+            <nav className="portfolio-header__nav">
+              {navigation.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="portfolio-header__nav-link"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
           </div>
         </motion.header>
 

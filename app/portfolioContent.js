@@ -2,7 +2,8 @@ export const siteCopy = {
   en: {
     header: {
       name: "Ramiro Benitez",
-      subtitle: "Full Stack Developer - Buenos Aires, Argentina",
+      role: "Full Stack Developer",
+      location: "Buenos Aires, Argentina",
     },
     navigation: [
       { label: "Work", href: "#work" },
@@ -351,7 +352,8 @@ export const siteCopy = {
   es: {
     header: {
       name: "Ramiro Benitez",
-      subtitle: "Desarrollador Full Stack - Buenos Aires, Argentina",
+      role: "Desarrollador Full Stack",
+      location: "Buenos Aires, Argentina",
     },
     navigation: [
       { label: "Trabajo", href: "#work" },
