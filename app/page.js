@@ -371,7 +371,7 @@ export default function Home() {
         </motion.header>
 
         <section className="hero-stage">
-          <div className="grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="grid gap-14 md:grid-cols-[minmax(0,1.1fr)_minmax(18rem,24rem)] md:items-center xl:grid-cols-[1.2fr_0.8fr]">
             <motion.div
               custom={0}
               initial="hidden"
@@ -435,7 +435,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              className="relative flex justify-center lg:justify-end"
+              className="relative flex justify-center"
               custom={1}
               initial="hidden"
               animate="visible"

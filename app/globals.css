@@ -394,11 +394,7 @@ a {
   }
 
   .portrait-note {
-    margin-top: -0.75rem;
-    margin-right: 4.5rem;
-    margin-left: 0;
-    align-self: flex-start;
-    text-align: left;
+    margin-top: -0.5rem;
   }
 }
 
