@@ -342,12 +342,12 @@ export default function Home() {
     <main className="relative overflow-hidden px-4 pb-16 pt-5 md:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.header
-          className="sticky top-4 z-40 mb-8 rounded-full border border-white/10 bg-[color:var(--panel-strong)] px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur"
+          className="sticky top-4 z-40 mb-8 rounded-[2rem] border border-white/10 bg-[color:var(--panel-strong)] px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur md:rounded-full"
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-[color:var(--accent)]">
                 Ramiro Benitez
@@ -356,12 +356,12 @@ export default function Home() {
                 Full Stack Developer - Buenos Aires, Argentina
               </p>
             </div>
-            <nav className="flex flex-wrap items-center gap-3 text-sm text-[color:var(--muted)]">
+            <nav className="grid w-full grid-cols-2 gap-2 text-sm text-[color:var(--muted)] sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-3">
               {navigation.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white"
+                  className="rounded-full px-3 py-2 text-center transition hover:bg-white/5 hover:text-white"
                 >
                   {item.label}
                 </a>
