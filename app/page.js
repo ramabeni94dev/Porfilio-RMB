@@ -1,91 +1,71 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import profileCardImage from "../public/ProfileCard2.png";
-import { siteCopy } from "./portfolioContent";
 import {
+  FiArrowDown,
   FiArrowRight,
-  FiBriefcase,
-  FiCode,
-  FiCpu,
-  FiDatabase,
-  FiGithub,
-  FiLayers,
-  FiLinkedin,
-  FiMail,
+  FiArrowUpRight,
+  FiDownload,
   FiMapPin,
-  FiMessageSquare,
-  FiSettings,
-  FiSmartphone,
 } from "react-icons/fi";
+import { links, siteCopy } from "./portfolioContent";
 
-const iconMap = {
-  layers: FiLayers,
-  briefcase: FiBriefcase,
-  messageSquare: FiMessageSquare,
-  settings: FiSettings,
-  code: FiCode,
-  cpu: FiCpu,
-  database: FiDatabase,
-  smartphone: FiSmartphone,
-};
+const sectionIds = ["proyectos", "experiencia", "stack", "contacto"];
 
-const languageOptions = [
-  { code: "en", label: "EN" },
-  { code: "es", label: "ES" },
-];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 36 },
-  visible: (index = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      delay: index * 0.08,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  }),
-};
-
-function SectionHeading({ eyebrow, title, description }) {
+function SectionIntro({ label, title, description }) {
   return (
-    <div className="max-w-3xl">
-      <span className="eyebrow">{eyebrow}</span>
-      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
-        {title}
-      </h2>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-[color:var(--muted)] md:text-lg">
-        {description}
-      </p>
+    <div className="section-intro">
+      <p className="section-label">{label}</p>
+      <div>
+        <h2>{title}</h2>
+        {description && <p className="section-description">{description}</p>}
+      </div>
     </div>
   );
 }
 
-function Tag({ children }) {
-  return <span className="tag">{children}</span>;
+function ProjectFeature({ project, index }) {
+  return (
+    <article className={`project-feature ${index % 2 ? "project-feature--reverse" : ""}`}>
+      <div className="project-copy">
+        <p className="project-kicker"><span>{project.number}</span>{project.category}</p>
+        <h3>{project.title}</h3>
+        <p className="project-subtitle">{project.subtitle}</p>
+        <p className="project-description">{project.description}</p>
+        <ul className="project-details">
+          {project.details.map((detail) => <li key={detail}>{detail}</li>)}
+        </ul>
+        <p className="project-stack">{project.stack}</p>
+      </div>
+      <figure className="project-figure">
+        <div className="project-media project-showcase">
+          <Image
+            src={project.imageSrc}
+            alt={project.imageAlt}
+            width={1536}
+            height={1024}
+            sizes="(max-width: 900px) 100vw, 50vw"
+            className="project-showcase-image"
+          />
+        </div>
+        <figcaption>{project.visualNote}</figcaption>
+      </figure>
+    </article>
+  );
 }
 
 export default function Home() {
-  const [locale, setLocale] = useState("en");
+  const [locale, setLocale] = useState("es");
+  const copy = siteCopy[locale];
 
   useEffect(() => {
-    const savedLocale = window.localStorage.getItem("portfolio-locale");
-
-    if (savedLocale === "en" || savedLocale === "es") {
-      setLocale(savedLocale);
-      return;
+    const saved = window.localStorage.getItem("portfolio-locale");
+    if (saved === "es" || saved === "en") {
+      setLocale(saved);
+    } else if (!window.navigator.language.toLowerCase().startsWith("es")) {
+      setLocale("en");
     }
-
-    const browserLocale = window.navigator.language
-      ?.toLowerCase()
-      .startsWith("es")
-      ? "es"
-      : "en";
-
-    setLocale(browserLocale);
   }, []);
 
   useEffect(() => {
@@ -93,451 +73,153 @@ export default function Home() {
     window.localStorage.setItem("portfolio-locale", locale);
   }, [locale]);
 
-  const content = siteCopy[locale] ?? siteCopy.en;
-  const {
-    header,
-    navigation,
-    hero,
-    metrics,
-    focusAreas,
-    workStreams,
-    stackGroups,
-    experience,
-    evidence,
-    sections,
-  } = content;
-
   return (
-    <main className="relative overflow-hidden px-4 pb-16 pt-5 md:px-8">
-      <div className="mx-auto max-w-7xl">
-        <motion.header
-          className="portfolio-header sticky top-4 z-40 mb-8 rounded-[2rem] border border-white/10 bg-[color:var(--panel-strong)] px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur md:rounded-full"
-          initial={{ opacity: 0, y: -24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="portfolio-header__inner">
-            <div className="portfolio-header__top">
-              <div className="portfolio-header__brand">
-                <p className="text-sm font-medium uppercase tracking-[0.2em] text-[color:var(--accent)]">
-                  {header.name}
-                </p>
-                <p className="portfolio-header__role">{header.role}</p>
-                <div className="portfolio-header__location">
-                  <FiMapPin className="text-[0.92rem]" />
-                  <span>{header.location}</span>
-                </div>
-              </div>
-
-              <div
-                className="portfolio-locale-switch inline-flex rounded-full border border-white/10 bg-white/5 p-1"
-                aria-label="Language switch"
-              >
-                {languageOptions.map((option) => {
-                  const isActive = option.code === locale;
-
-                  return (
-                    <button
-                      key={option.code}
-                      type="button"
-                      onClick={() => setLocale(option.code)}
-                      aria-pressed={isActive}
-                      className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] transition ${
-                        isActive
-                          ? "bg-[color:var(--accent)] text-[#081210]"
-                          : "text-[color:var(--muted)] hover:text-white"
-                      }`}
-                    >
-                      {option.label}
-                    </button>
-                  );
-                })}
-              </div>
+    <>
+      <a className="skip-link" href="#contenido">{locale === "es" ? "Saltar al contenido" : "Skip to content"}</a>
+      <header className="site-header">
+        <div className="header-inner">
+          <a className="brand" href="#inicio" aria-label="Ramiro Benitez — inicio">
+            <span className="brand-mark">RB<span>.</span></span>
+            <span className="brand-name">Ramiro Benitez<small>Full Stack Software Engineer</small></span>
+          </a>
+          <nav className="desktop-nav" aria-label={locale === "es" ? "Navegación principal" : "Main navigation"}>
+            {copy.navigation.map((label, index) => (
+              <a key={sectionIds[index]} href={`#${sectionIds[index]}`}>{label}</a>
+            ))}
+          </nav>
+          <div className="header-actions">
+            <div className="language-switch" role="group" aria-label={locale === "es" ? "Idioma" : "Language"}>
+              <button type="button" onClick={() => setLocale("es")} aria-pressed={locale === "es"}>ES</button>
+              <span aria-hidden="true">/</span>
+              <button type="button" onClick={() => setLocale("en")} aria-pressed={locale === "en"}>EN</button>
             </div>
+            <a className="header-contact" href="#contacto">{copy.navigation[3]} <FiArrowUpRight aria-hidden="true" /></a>
+          </div>
+        </div>
+      </header>
 
-            <nav className="portfolio-header__nav">
-              {navigation.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="portfolio-header__nav-link"
-                >
-                  {item.label}
-                </a>
+      <main id="contenido">
+        <section id="inicio" className="hero section-container">
+          <div className="hero-copy">
+            <p className="eyebrow"><span className="eyebrow-dot" />{copy.hero.eyebrow}</p>
+            <h1>{copy.hero.title}<br /><em>{copy.hero.emphasis}</em></h1>
+            <p className="hero-description">{copy.hero.description}</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#proyectos">{copy.hero.workCta}<FiArrowUpRight aria-hidden="true" /></a>
+              <a className="button button-text" href={copy.cv} download>{copy.cvLabel}<FiDownload aria-hidden="true" /></a>
+            </div>
+            <p className="hero-location"><FiMapPin aria-hidden="true" />{copy.hero.location}</p>
+          </div>
+          <div className="hero-portrait-wrap">
+            <svg className="portrait-clip-defs" aria-hidden="true" focusable="false">
+              <defs>
+                <clipPath id="portrait-spline" clipPathUnits="objectBoundingBox">
+                  <path d="M .22 .025 C .38 -.018 .56 .035 .72 .015 C .87 -.002 .98 .105 .985 .25 C .99 .37 .955 .48 .985 .6 C 1.015 .78 .93 .945 .76 .985 C .59 1.02 .48 .975 .31 .997 C .15 1.015 .015 .93 .015 .77 C .012 .61 .05 .53 .018 .39 C -.015 .23 .045 .08 .22 .025 Z" />
+                </clipPath>
+              </defs>
+            </svg>
+            <div className="hero-portrait">
+              <Image
+                src="/ramiro-nexoworks.webp"
+                alt={copy.hero.portraitAlt}
+                width={1200}
+                height={1642}
+                sizes="(max-width: 650px) 86vw, (max-width: 950px) 35vw, 30vw"
+                priority
+                className="portrait-image"
+              />
+            </div>
+            <p className="portrait-caption">{copy.hero.portraitCaption}</p>
+          </div>
+          <a className="scroll-cue" href="#enfoque">{copy.hero.scroll}<FiArrowDown aria-hidden="true" /></a>
+        </section>
+
+        <section id="enfoque" className="intro-band">
+          <div className="section-container intro-inner">
+            <p className="section-label">{copy.intro.label}</p>
+            <div>
+              <h2>{copy.intro.title}</h2>
+              <p>{copy.intro.body}</p>
+              <ul className="intro-highlights">
+                {copy.intro.highlights.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="proyectos" className="projects-section section-container">
+          <SectionIntro label={copy.projects.label} title={copy.projects.title} description={copy.projects.description} />
+          <div className="featured-projects">
+            {copy.projects.featured.map((project, index) => <ProjectFeature key={project.number} project={project} index={index} />)}
+          </div>
+          <div className="more-projects">
+            <p className="section-label">{copy.projects.moreLabel}</p>
+            <div className="more-list">
+              {copy.projects.more.map((project) => (
+                <article className="more-row" key={project.number}>
+                  <span className="more-number">{project.number}</span>
+                  <div className="more-title"><h3>{project.title}</h3><p>{project.type}</p></div>
+                  <p className="more-summary">{project.summary}</p>
+                  <span className="more-stack">{project.stack}</span>
+                </article>
               ))}
-            </nav>
-          </div>
-        </motion.header>
-
-        <section className="hero-stage">
-          <div className="grid gap-14 md:grid-cols-[minmax(0,1.1fr)_minmax(18rem,24rem)] md:items-center xl:grid-cols-[1.2fr_0.8fr]">
-            <motion.div
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              <span className="eyebrow">{hero.eyebrow}</span>
-              <p className="mt-10 text-lg font-medium text-white/80">
-                {hero.greeting}
-              </p>
-              <h1 className="mt-4 max-w-5xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-                {hero.title}
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)] md:text-xl">
-                {hero.description}
-              </p>
-              <div className="mt-8 flex items-center gap-2 text-sm text-[color:var(--muted)]">
-                <FiMapPin />
-                <span>{hero.location}</span>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="mailto:ramabeni94.dev@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-[#0d1110] transition hover:translate-y-[-1px]"
-                >
-                  <FiMail className="text-base" />
-                  {hero.ctaEmail}
-                </a>
-                <a
-                  href="https://github.com/ramabeni94dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/8"
-                >
-                  <FiGithub className="text-base" />
-                  {hero.ctaGithub}
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/ramabeni94/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/8"
-                >
-                  <FiLinkedin className="text-base" />
-                  {hero.ctaLinkedIn}
-                </a>
-              </div>
-
-              <div className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {metrics.map((metric) => (
-                  <div key={metric.label} className="metric-card">
-                    <p className="metric-value">{metric.value}</p>
-                    <p className="metric-label">{metric.label}</p>
-                    <p className="metric-detail">{metric.detail}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="relative flex justify-center"
-              custom={1}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              <div className="portrait-stage">
-                <div className="portrait-halo" />
-                <div className="portrait-orb">
-                  <Image
-                    src={profileCardImage}
-                    alt={hero.portraitAlt}
-                    width={760}
-                    height={760}
-                    priority
-                    className="portrait-orb-image"
-                  />
-                </div>
-                <div className="portrait-note">
-                  <span className="eyebrow">{hero.profileEyebrow}</span>
-                  <p className="mt-4 text-xl font-semibold text-white">
-                    {hero.profileTitle}
-                  </p>
-                  <p className="mt-3 text-base leading-7 text-[color:var(--muted)]">
-                    {hero.profileDescription}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        <section id="work" className="mt-8">
-          <SectionHeading
-            eyebrow={sections.work.eyebrow}
-            title={sections.work.title}
-            description={sections.work.description}
-          />
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {focusAreas.map((area, index) => {
-              const Icon = iconMap[area.icon];
-
-              return (
-                <motion.article
-                  key={area.title}
-                  className="panel-card"
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.25 }}
-                  variants={fadeUp}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="eyebrow">{sections.work.cardEyebrow}</span>
-                      <h3 className="mt-3 text-2xl font-semibold text-white">
-                        {area.title}
-                      </h3>
-                    </div>
-                    <div className="icon-badge">
-                      <Icon />
-                    </div>
-                  </div>
-                  <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
-                    {area.description}
-                  </p>
-                  <ul className="mt-6 space-y-3 text-sm text-white/85">
-                    {area.items.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-[0.45rem] h-2 w-2 rounded-full bg-[color:var(--accent)]" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.article>
-              );
-            })}
+        <section id="experiencia" className="experience-section">
+          <div className="section-container">
+            <SectionIntro label={copy.experience.label} title={copy.experience.title} />
+            <div className="experience-list">
+              {copy.experience.entries.map((entry) => (
+                <article className="experience-row" key={entry.company}>
+                  <p className="experience-period">{entry.period}</p>
+                  <div><h3>{entry.role}</h3><p className="experience-company">{entry.company}</p></div>
+                  <p className="experience-description">{entry.description}</p>
+                </article>
+              ))}
+            </div>
+            <a className="nexo-link" href={links.nexo} target="_blank" rel="noopener noreferrer">{copy.experience.nexoCta}<FiArrowUpRight aria-hidden="true" /></a>
           </div>
         </section>
 
-        <section className="mt-24">
-          <SectionHeading
-            eyebrow={sections.projects.eyebrow}
-            title={sections.projects.title}
-            description={sections.projects.description}
-          />
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            {workStreams.map((stream, index) => (
-              <motion.article
-                key={stream.title}
-                className="panel-card"
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeUp}
-              >
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="eyebrow">{stream.eyebrow}</span>
-                  <span className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                    {sections.projects.badge}
-                  </span>
-                </div>
-                <h3 className="mt-4 text-2xl font-semibold text-white">
-                  {stream.title}
-                </h3>
-                <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
-                  {stream.summary}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {stream.stack.map((item) => (
-                    <Tag key={item}>{item}</Tag>
-                  ))}
-                </div>
-                <ul className="mt-6 space-y-3 text-sm text-white/85">
-                  {stream.highlights.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-[0.45rem] h-2 w-2 rounded-full bg-[color:var(--accent-2)]" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.article>
+        <section id="stack" className="stack-section section-container">
+          <SectionIntro label={copy.stack.label} title={copy.stack.title} />
+          <div className="stack-grid">
+            {copy.stack.groups.map((group, index) => (
+              <article className="stack-group" key={group.title}>
+                <span className="stack-index">0{index + 1}</span>
+                <h3>{group.title}</h3>
+                <p>{group.items}</p>
+              </article>
             ))}
           </div>
         </section>
 
-        <section id="stack" className="mt-24">
-          <SectionHeading
-            eyebrow={sections.stack.eyebrow}
-            title={sections.stack.title}
-            description={sections.stack.description}
-          />
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {stackGroups.map((group, index) => {
-              const Icon = iconMap[group.icon];
-
-              return (
-                <motion.article
-                  key={group.title}
-                  className="panel-card"
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={fadeUp}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="icon-badge">
-                      <Icon />
-                    </div>
-                    <h3 className="text-2xl font-semibold text-white">
-                      {group.title}
-                    </h3>
-                  </div>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {group.skills.map((skill) => (
-                      <Tag key={skill}>{skill}</Tag>
-                    ))}
-                  </div>
-                </motion.article>
-              );
-            })}
+        <section id="contacto" className="contact-section">
+          <div className="section-container contact-inner">
+            <p className="section-label">{copy.contact.label}</p>
+            <div>
+              <h2>{copy.contact.title}</h2>
+              <p>{copy.contact.description}</p>
+              <a className="contact-email" href={links.email}>ramiromarcelobenitez@gmail.com<FiArrowUpRight aria-hidden="true" /></a>
+              <div className="contact-links">
+                <a href={links.email}>{copy.contact.emailCta}<FiArrowUpRight aria-hidden="true" /></a>
+                <a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<FiArrowUpRight aria-hidden="true" /></a>
+                <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub<FiArrowUpRight aria-hidden="true" /></a>
+                <a href={copy.cv} download>{copy.cvLabel}<FiDownload aria-hidden="true" /></a>
+              </div>
+            </div>
           </div>
         </section>
+      </main>
 
-        <section id="experience" className="mt-24 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="panel-card">
-            <SectionHeading
-              eyebrow={sections.experience.eyebrow}
-              title={sections.experience.title}
-              description={sections.experience.description}
-            />
-            <div className="mt-8 space-y-8">
-              {experience.map((item) => (
-                <div
-                  key={`${item.role}-${item.company}`}
-                  className="rounded-[24px] border border-white/10 bg-black/15 p-6"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div>
-                      <p className="text-xl font-semibold text-white">
-                        {item.role}
-                      </p>
-                      <p className="mt-1 text-sm uppercase tracking-[0.18em] text-[color:var(--accent)]">
-                        {item.company}
-                      </p>
-                    </div>
-                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                      {item.period}
-                    </span>
-                  </div>
-                  <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
-                    {item.summary}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <motion.aside
-            className="panel-card"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeUp}
-          >
-            <span className="eyebrow">{sections.evidence.eyebrow}</span>
-            <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
-              {sections.evidence.title}
-            </h3>
-            <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
-              {sections.evidence.description}
-            </p>
-            <ul className="mt-8 space-y-3 text-sm text-white/85">
-              {evidence.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-[0.45rem] h-2 w-2 rounded-full bg-[color:var(--accent-3)]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="https://github.com/ramabeni94dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-[color:var(--accent)]"
-            >
-              {sections.evidence.cta}
-              <FiArrowRight />
-            </a>
-          </motion.aside>
-        </section>
-
-        <motion.section
-          id="contact"
-          className="mt-24"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-        >
-          <div className="contact-shell">
-            <div className="max-w-3xl">
-              <span className="eyebrow">{sections.contact.eyebrow}</span>
-              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
-                {sections.contact.title}
-              </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
-                {sections.contact.description}
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              <a
-                href="mailto:ramabeni94.dev@gmail.com"
-                className="contact-card"
-              >
-                <FiMail className="text-xl text-[color:var(--accent)]" />
-                <span className="mt-4 block text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                  {sections.contact.cards.email}
-                </span>
-                <span className="mt-2 block text-lg font-semibold text-white">
-                  ramabeni94.dev@gmail.com
-                </span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ramabeni94/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-card"
-              >
-                <FiLinkedin className="text-xl text-[color:var(--accent)]" />
-                <span className="mt-4 block text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                  {sections.contact.cards.linkedin}
-                </span>
-                <span className="mt-2 block text-lg font-semibold text-white">
-                  /in/ramabeni94
-                </span>
-              </a>
-              <a
-                href="https://github.com/ramabeni94dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-card"
-              >
-                <FiGithub className="text-xl text-[color:var(--accent)]" />
-                <span className="mt-4 block text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                  {sections.contact.cards.github}
-                </span>
-                <span className="mt-2 block text-lg font-semibold text-white">
-                  ramabeni94dev
-                </span>
-              </a>
-            </div>
-          </div>
-        </motion.section>
-
-        <footer className="pb-6 pt-16 text-sm text-[color:var(--muted)]">
-          <div className="flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-            <p>{sections.footer}</p>
-          </div>
-        </footer>
-      </div>
-    </main>
+      <footer className="site-footer">
+        <div className="section-container footer-inner">
+          <p>© {new Date().getFullYear()} Ramiro Benitez <span>·</span> {copy.footer}</p>
+          <a href="#inicio">{copy.backToTop}<FiArrowRight aria-hidden="true" /></a>
+        </div>
+      </footer>
+    </>
   );
 }

@@ -1,47 +1,40 @@
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
-import SmokeEffect from "./Components/SmokeEffect/SmokeEffect";
+import { Bodoni_Moda, Hind } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   variable: "--font-display",
+  display: "swap",
+  adjustFontFallback: false,
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const hind = Hind({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
 });
 
 export const metadata = {
-  title: "Ramiro Benitez | Full Stack Developer",
+  title: "Ramiro Benitez | Full Stack Software Engineer",
   description:
-    "Full Stack Developer building business software, internal platforms, AI-powered workflows and operational tools with React, Next.js, Node.js, Azure and PostgreSQL.",
+    "Portfolio de Ramiro Benitez. Desarrollador Full Stack con más de 7 años de experiencia en software empresarial, integraciones e IA aplicada.",
   metadataBase: new URL("https://porfilio-rmb.vercel.app"),
   openGraph: {
-    title: "Ramiro Benitez | Full Stack Developer",
+    title: "Ramiro Benitez | Full Stack Software Engineer",
     description:
-      "Portfolio focused on real product delivery across internal systems, portals, automation and AI-assisted workflows.",
+      "Software empresarial, arquitectura de producto e IA aplicada. Proyectos, experiencia y contacto.",
     url: "https://porfilio-rmb.vercel.app",
     siteName: "Ramiro Benitez Portfolio",
-    locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ramiro Benitez | Full Stack Developer",
-    description:
-      "Portfolio focused on internal systems, AI-assisted workflows and business software delivery.",
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${spaceGrotesk.variable} ${ibmPlexMono.variable}`}>
-        <SmokeEffect />
-        {children}
-      </body>
+    <html lang="es">
+      <body className={`${bodoni.variable} ${hind.variable}`}>{children}</body>
     </html>
   );
 }

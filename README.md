@@ -1,47 +1,31 @@
-## Ramiro Benitez - Portfolio
+# Ramiro Benitez — Portfolio
 
-Professional portfolio built with **Next.js 14**, **Tailwind CSS** and **Framer Motion**.
+Portfolio bilingüe de Ramiro Benitez, desarrollado con Next.js 14. Presenta su experiencia Full Stack, proyectos seleccionados, stack y formas de contacto.
 
-Live site: `https://porfilio-rmb.vercel.app`
+## Diseño
 
-## Focus
+La dirección visual toma referencias del sitio de [NexoWorks](https://www.nexoworks.site/): fondo carbón, tipografía editorial, tonos cálidos y verde usado con moderación. El retrato principal usa la foto original de la sección de equipo de NexoWorks. El contenido prioriza una lectura clara para reclutadores. Las imágenes de OCEANS y Camax son vistas ilustrativas basadas en sus interfaces reales, con personas y datos ficticios.
 
-This version of the portfolio is centered on real delivery patterns extracted from active repositories across personal and organization work. It highlights:
+## Contenido
 
-- Full stack product engineering
-- Internal business software
-- AI-assisted workflows
-- HR portals and operational systems
-- Cloud-connected applications with Azure
-- Backend and automation work with Node.js and Python
+- Español e inglés, con preferencia guardada en el navegador.
+- CV correspondiente a cada idioma en `public/cv/`.
+- Proyectos destacados: OCEANS y Camax Neumáticos.
+- Otros trabajos, experiencia, stack y enlaces de contacto.
 
-## Core stack
-
-- **Frontend**: React, Next.js, JavaScript, TypeScript, Tailwind CSS, Material UI, Framer Motion
-- **Backend**: Node.js, NestJS, Express.js, Azure Functions, FastAPI
-- **Data**: PostgreSQL, Sequelize, PL/pgSQL, SQL Server
-- **Integrations**: OpenAI API, Odoo XML-RPC, MQTT, Selenium
-- **Delivery**: Azure, GitHub Actions, Docker
-- **Mobile**: React Native, Expo
-
-## Run locally
+## Desarrollo
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Abrí `http://localhost:3000` (o el puerto disponible indicado por Next.js).
 
-## Build
+## Verificación
 
 ```bash
 npm run build
-npm run start
 ```
 
-## Links
-
-- GitHub: `https://github.com/ramabeni94dev`
-- LinkedIn: `https://www.linkedin.com/in/ramabeni94/`
-- Email: `ramabeni94.dev@gmail.com`
+Sitio publicado: [porfilio-rmb.vercel.app](https://porfilio-rmb.vercel.app).
