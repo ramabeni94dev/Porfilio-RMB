@@ -28,4 +28,4 @@ Abrí `http://localhost:3000` (o el puerto disponible indicado por Next.js).
 npm run build
 ```
 
-Sitio publicado: [porfilio-rmb.vercel.app](https://porfilio-rmb.vercel.app).
+Sitio publicado en [GitHub Pages](https://ramabeni94dev.github.io/Porfilio-RMB/). El workflow de `main` configura `NEXT_PUBLIC_BASE_PATH=/Porfilio-RMB` para las imágenes y los CV.

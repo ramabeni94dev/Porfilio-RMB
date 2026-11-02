@@ -9,7 +9,7 @@ import {
   FiDownload,
   FiMapPin,
 } from "react-icons/fi";
-import { links, siteCopy } from "./portfolioContent";
+import { assetBasePath, links, siteCopy } from "./portfolioContent";
 
 const sectionIds = ["proyectos", "experiencia", "stack", "contacto"];
 
@@ -120,7 +120,7 @@ export default function Home() {
             </svg>
             <div className="hero-portrait">
               <Image
-                src="/ramiro-nexoworks.webp"
+                src={`${assetBasePath}/ramiro-nexoworks.webp`}
                 alt={copy.hero.portraitAlt}
                 width={1200}
                 height={1642}

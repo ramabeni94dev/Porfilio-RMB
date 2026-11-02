@@ -1,3 +1,5 @@
+export const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const links = {
   email: "mailto:ramiromarcelobenitez@gmail.com",
   linkedin: "https://www.linkedin.com/in/ramabeni94/",
@@ -8,7 +10,7 @@ export const links = {
 export const siteCopy = {
   es: {
     navigation: ["Proyectos", "Experiencia", "Stack", "Contacto"],
-    cv: "/cv/Ramiro_Benitez_CV_ES.pdf",
+    cv: `${assetBasePath}/cv/Ramiro_Benitez_CV_ES.pdf`,
     cvLabel: "Descargar CV",
     hero: {
       eyebrow: "RAMIRO BENITEZ / FULL STACK SOFTWARE ENGINEER",
@@ -41,7 +43,7 @@ export const siteCopy = {
           details: ["API y workers desacoplados", "Búsqueda vectorial con referencias temporales", "Seguridad y aislamiento por organización"],
           stack: "Next.js · TypeScript · FastAPI · Celery · PostgreSQL/pgvector · OpenAI",
           visualNote: "Vista ilustrativa de OCEANS con participantes y datos ficticios",
-          imageSrc: "/projects/oceans-showcase.png",
+          imageSrc: `${assetBasePath}/projects/oceans-showcase.png`,
           imageAlt: "Vista ilustrativa de OCEANS con videollamada, detección de rostros y análisis de expresiones",
         },
         {
@@ -53,7 +55,7 @@ export const siteCopy = {
           details: ["Circuito comercial unificado", "Imputación de cobros y control de saldos", "Trazabilidad y permisos"],
           stack: "Next.js · TypeScript · Prisma · PostgreSQL · S3",
           visualNote: "Vista ilustrativa de Camax con datos ficticios",
-          imageSrc: "/projects/camax-showcase.png",
+          imageSrc: `${assetBasePath}/projects/camax-showcase.png`,
           imageAlt: "Vista ilustrativa del módulo de remitos de Camax Neumáticos con indicadores, filtros y tabla de comprobantes",
         },
       ],
@@ -95,7 +97,7 @@ export const siteCopy = {
   },
   en: {
     navigation: ["Projects", "Experience", "Stack", "Contact"],
-    cv: "/cv/Ramiro_Benitez_CV_EN.pdf",
+    cv: `${assetBasePath}/cv/Ramiro_Benitez_CV_EN.pdf`,
     cvLabel: "Download CV",
     hero: {
       eyebrow: "RAMIRO BENITEZ / FULL STACK SOFTWARE ENGINEER",
@@ -128,7 +130,7 @@ export const siteCopy = {
           details: ["Decoupled API and workers", "Vector search with timestamp references", "Organization-level isolation and security"],
           stack: "Next.js · TypeScript · FastAPI · Celery · PostgreSQL/pgvector · OpenAI",
           visualNote: "Illustrative OCEANS view with fictional participants and data",
-          imageSrc: "/projects/oceans-showcase.png",
+          imageSrc: `${assetBasePath}/projects/oceans-showcase.png`,
           imageAlt: "Illustrative OCEANS interface with a video meeting, face detection and expression analysis",
         },
         {
@@ -140,7 +142,7 @@ export const siteCopy = {
           details: ["Unified sales workflow", "Payment allocation and balance controls", "Traceability and permissions"],
           stack: "Next.js · TypeScript · Prisma · PostgreSQL · S3",
           visualNote: "Illustrative Camax view with fictional data",
-          imageSrc: "/projects/camax-showcase.png",
+          imageSrc: `${assetBasePath}/projects/camax-showcase.png`,
           imageAlt: "Illustrative Camax Neumáticos delivery notes dashboard with metrics, filters and document table",
         },
       ],
