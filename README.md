@@ -4,7 +4,7 @@ Portfolio bilingüe de Ramiro Benitez, desarrollado con Next.js 14. Presenta su 
 
 ## Diseño
 
-La dirección visual toma referencias del sitio de [NexoWorks](https://www.nexoworks.site/): fondo carbón, tipografía editorial, tonos cálidos y verde usado con moderación. El retrato principal usa la foto original de la sección de equipo de NexoWorks. El contenido prioriza una lectura clara para reclutadores. Las imágenes de OCEANS y Camax son vistas ilustrativas basadas en sus interfaces reales, con personas y datos ficticios.
+La dirección visual toma referencias del sitio de [NexoWorks](https://www.nexoworks.site/): fondo carbón, tonos cálidos y verde usado con moderación. La tipografía combina Bricolage Grotesque en títulos y Onest en textos para una lectura moderna y clara. El retrato principal usa la foto original de la sección de equipo de NexoWorks. El contenido prioriza una lectura clara para reclutadores. Las imágenes de OCEANS y Camax son vistas ilustrativas basadas en sus interfaces reales, con personas y datos ficticios.
 
 ## Contenido
 

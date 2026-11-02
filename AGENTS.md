@@ -7,7 +7,7 @@ Recruiters are the primary audience. They need a quick, credible view of Ramiro'
 Precise, credible, quietly ambitious.
 
 ### Aesthetic Direction
-Use NexoWorks as the visual reference: charcoal, warm off-white, editorial typography, restrained green accents, and generous asymmetric spacing. Keep the portfolio sober and bilingual.
+Use NexoWorks as the visual reference: charcoal, warm off-white, expressive contemporary sans typography, restrained green accents, and generous asymmetric spacing. Use Bricolage Grotesque for display text and Onest for body text. Keep the portfolio sober and bilingual.
 
 ### Design Principles
 1. Lead with Ramiro's profile and strongest work.

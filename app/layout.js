@@ -1,16 +1,17 @@
-import { Bodoni_Moda, Hind } from "next/font/google";
+import { Bricolage_Grotesque, Onest } from "next/font/google";
 import "./globals.css";
 
-const bodoni = Bodoni_Moda({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
+  weight: "variable",
   variable: "--font-display",
   display: "swap",
   adjustFontFallback: false,
 });
 
-const hind = Hind({
+const onest = Onest({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
   variable: "--font-body",
   display: "swap",
 });
@@ -34,7 +35,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={`${bodoni.variable} ${hind.variable}`}>{children}</body>
+      <body className={`${bricolage.variable} ${onest.variable}`}>{children}</body>
     </html>
   );
 }
