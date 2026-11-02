@@ -7,6 +7,17 @@ export const links = {
   nexo: "https://www.nexoworks.site/",
 };
 
+export const clientLogos = [
+  { name: "Caki", src: `${assetBasePath}/clients/caki.png`, width: 968, height: 311 },
+  { name: "Tina Horeca", src: `${assetBasePath}/clients/tina-horeca.svg`, width: 207, height: 71 },
+  { name: "Tramontina", src: `${assetBasePath}/clients/tramontina.svg`, width: 133, height: 20 },
+  { name: "Punta Alta Visión", src: `${assetBasePath}/clients/punta-alta-vision.png`, width: 3376, height: 401 },
+  { name: "Imán Digital", src: `${assetBasePath}/clients/iman-digital.svg`, width: 158, height: 48 },
+  { name: "Göttert", src: `${assetBasePath}/clients/gottert.svg`, width: 345, height: 69 },
+  { name: "Lefast", src: `${assetBasePath}/clients/lefast.png`, width: 1356, height: 274 },
+  { name: "Transporte de Oliveira", src: `${assetBasePath}/clients/transporte-de-oliveira-trimmed.webp`, width: 361, height: 73 },
+];
+
 export const siteCopy = {
   es: {
     navigation: ["Proyectos", "Experiencia", "Stack", "Contacto"],
@@ -28,6 +39,10 @@ export const siteCopy = {
       title: "La tecnología sirve cuando hace más claro el trabajo de alguien.",
       body: "Conecto procesos, datos e interfaces para resolver necesidades concretas. Me involucro en la arquitectura, el desarrollo y la evolución del producto, con atención tanto al funcionamiento como a la experiencia de uso.",
       highlights: ["7+ años de experiencia", "Frontend + backend + datos", "IA aplicada a productos reales"],
+    },
+    clients: {
+      label: "COLABORACIONES / NEXOWORKS",
+      title: "Empresas con las que trabajamos desde NexoWorks.",
     },
     projects: {
       label: "01 / TRABAJO SELECCIONADO",
@@ -115,6 +130,10 @@ export const siteCopy = {
       title: "Technology matters when it makes someone's work clearer.",
       body: "I connect processes, data and interfaces to solve concrete needs. I work across architecture, development and product evolution, paying attention to both how a system works and how it feels to use.",
       highlights: ["7+ years of experience", "Frontend + backend + data", "Applied AI in real products"],
+    },
+    clients: {
+      label: "COLLABORATIONS / NEXOWORKS",
+      title: "Companies we've worked with through NexoWorks.",
     },
     projects: {
       label: "01 / SELECTED WORK",

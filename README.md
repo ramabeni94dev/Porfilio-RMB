@@ -11,6 +11,7 @@ La dirección visual toma referencias del sitio de [NexoWorks](https://www.nexow
 - Español e inglés, con preferencia guardada en el navegador.
 - CV correspondiente a cada idioma en `public/cv/`.
 - Proyectos destacados: OCEANS y Camax Neumáticos.
+- Logos de empresas con las que trabaja NexoWorks, incluidos como archivos locales en `public/clients/`.
 - Otros trabajos, experiencia, stack y enlaces de contacto.
 
 ## Desarrollo

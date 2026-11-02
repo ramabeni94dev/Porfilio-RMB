@@ -9,7 +9,7 @@ import {
   FiDownload,
   FiMapPin,
 } from "react-icons/fi";
-import { assetBasePath, links, siteCopy } from "./portfolioContent";
+import { assetBasePath, clientLogos, links, siteCopy } from "./portfolioContent";
 
 const sectionIds = ["proyectos", "experiencia", "stack", "contacto"];
 
@@ -144,6 +144,28 @@ export default function Home() {
                 {copy.intro.highlights.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
+          </div>
+        </section>
+
+        <section className="clients-section" aria-labelledby="clients-title">
+          <div className="section-container clients-inner">
+            <div className="clients-heading">
+              <p className="section-label">{copy.clients.label}</p>
+              <h2 id="clients-title">{copy.clients.title}</h2>
+            </div>
+            <ul className="client-logos">
+              {clientLogos.map((client) => (
+                <li className="client-logo" key={client.name}>
+                  <Image
+                    src={client.src}
+                    alt={client.name}
+                    width={client.width}
+                    height={client.height}
+                    sizes="(max-width: 650px) 40vw, (max-width: 950px) 22vw, 16vw"
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
